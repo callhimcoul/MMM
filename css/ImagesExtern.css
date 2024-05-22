@@ -1,0 +1,108 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style for the image gallery section */
+.image-gallery {
+    padding: 2rem 1rem;
+    background: rgba(12, 12, 12, 0.8);
+    border-radius: 1.5%;
+    text-align: center;
+    margin-top: 2rem; /* Add margin to separate sections */
+}
+
+.image-gallery h2 {
+    font-size: 1.5rem;
+    color: #d0b546;
+    margin-bottom: 1.5rem;
+}
+
+.rowim {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.image-container {
+    position: relative;
+    margin: 0 0.5rem;
+}
+
+.image-in-gallery {
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-in-gallery:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    display: none;
+}
+
+.image-container:hover .close-button {
+    display: block;
+}
+
+.gallery-button {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #d0b546;
+    background: none;
+    border: 2px solid #d0b546;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.gallery-button:hover {
+    background: #d0b546;
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .rowim {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-container {
+        margin: 0.5rem 0;
+    }
+
+    .project-item {
+        margin: 1rem 0; /* Adjust margin to avoid overlap */
+    }
+
+    .image-gallery {
+        padding: 1rem 0.5rem; /* Reduce padding for smaller screens */
+        margin-top: 1rem; /* Reduce margin for smaller screens */
+    }
+
+    .image-gallery h2 {
+        font-size: 1.25rem; /* Adjust font size for smaller screens */
+    }
+
+    .gallery-button {
+        font-size: 0.75rem; /* Adjust button font size */
+        padding: 3px 6px; /* Adjust button padding */
+    }
+}
+
+
