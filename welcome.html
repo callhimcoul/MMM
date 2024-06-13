@@ -3,10 +3,8 @@
 <head>
     <title>Welcome to Morphing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="stylesheet" href="css/fonts.css">
 </head>
 
 <body>
@@ -103,7 +101,7 @@
             opacity: 1;
         }
         50% {
-            transform: scale(1.15);
+            transform: scale(1.5);
             opacity: 0.7;
         }
         100% {
@@ -112,17 +110,20 @@
         }
     }
 
+
     .logo {
-        animation: pulsate 2s infinite ease-in-out;
+        animation: pulsate 4s infinite ease-in-out;
         cursor: pointer;
         width: 100px;
         height: 96px;
         transition: all 0.3s ease-in-out;
+        box-shadow: 0 0 10px #fff;
+        border-radius: 50%;
     }
 
     .logo:hover {
-        border-color: #fff; /* Existing border-color change */
-        box-shadow: 0 0 10px #fff;  /* Add a white box-shadow */
+        border-color: #fff;
+        box-shadow: 0 0 10px #fff;
         border-radius: 50%;
     }
 
@@ -147,7 +148,7 @@
         }
 
         .logo {
-            animation: pulsate 2s infinite ease-in-out;
+            animation: pulsate 3s infinite ease-in-out;
             cursor: pointer;
             width: 100px;
             height: 96px;
@@ -196,47 +197,24 @@
 </style>
 
 <div class="welcome-screen">
-    <img
-            src="Images/gold_logo_notext.png"
-            class="logo"
-            alt="Logo"
-            id="welcomeImage"
-
-    />
-    <div class="welcome-text customreg-text">
-        Welcome to the World of Morphing
+    <img src="Images/gold_logo_notext.png" class="logo" alt="Logo" id="welcomeImage"/>
+    <div class="welcome-text customreg-text">Welcome to the World of Morphing
     </div>
     <ul class="social-icons">
         <li>
-            <a href="https://www.instagram.com/morphingmusic" target="_blank"
-            ><i class="fa fa-instagram"></i
-            ></a>
+            <a href="https://www.instagram.com/morphingmusic" target="_blank"><i class="fa fa-instagram"></i></a>
         </li>
         <li>
-            <a href="https://www.facebook.com/morphingmusic/" target="_blank"
-            ><i class="fa fa-facebook"></i
-            ></a>
+            <a href="https://www.facebook.com/morphingmusic/" target="_blank"><i class="fa fa-facebook"></i></a>
         </li>
         <li>
-            <a
-                    href="https://www.youtube.com/@morphingchamberorchestra"
-                    target="_blank"
-            ><i class="fa fa-youtube"></i
-            ></a>
+            <a href="https://www.youtube.com/@morphingchamberorchestra" target="_blank"><i class="fa fa-youtube"></i></a>
         </li>
         <li>
-            <a
-                    href="https://open.spotify.com/intl-de/artist/3NJaau60IyYeDGWI0cxI0W?si=OZs-N19pSiysS4uY6BDriA"
-                    target="_blank"
-            ><i class="fa fa-spotify"></i
-            ></a>
+            <a href="https://open.spotify.com/intl-de/artist/3NJaau60IyYeDGWI0cxI0W?si=OZs-N19pSiysS4uY6BDriA" target="_blank"><i class="fa fa-spotify"></i></a>
         </li>
         <li>
-            <a
-                    href="https://music.apple.com/us/artist/morphing-chamber-orchestra/434036476"
-                    target="_blank"
-            ><i class="fa fa-apple"></i
-            ></a>
+            <a href="https://music.apple.com/us/artist/morphing-chamber-orchestra/434036476" target="_blank"><i class="fa fa-apple"></i></a>
         </li>
     </ul>
 </div>

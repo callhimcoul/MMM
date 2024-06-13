@@ -1,22 +1,25 @@
+
 .projects-section {
     position: relative;
     z-index: 2;
     padding: 5rem 1rem;
-    height: 100vh;
+    height: auto; /* Change height to auto for better responsive behavior */
     overflow: hidden;
+    margin-bottom: 3rem; /* Add margin-bottom for separation */
 }
 
 .projects-section h2 {
     text-align: center;
     margin-bottom: 3rem;
     color: #d0b546;
+    font-size: 2rem; /* Ensure the font size is 2rem for consistency */
 }
 
 .project-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(12, 12, 12, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 1.5%;
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -62,8 +65,9 @@
 
 .project-content p {
     margin-bottom: 1rem;
-    font-size: 24px;
+    font-size: 18px;
     color: white;
+    opacity: 70%;
     font-family: 'VerlagBookItalic', sans-serif;
 }
 
@@ -146,6 +150,10 @@
         font-size: 0.75rem;
         padding: 3px 6px;
     }
+
+    .project-item {
+        margin-bottom: 3rem; /* Add margin-bottom for separation between projects */
+    }
 }
 
 .countdown-timer {
@@ -161,6 +169,37 @@
     box-shadow: 0 0 10px goldenrod;
     font-family: 'VerlagBookItalic', sans-serif;
 }
+
+.upcoming-project .project-item {
+    background-color: rgba(255, 215, 0, 0.2); /* Light golden background for upcoming project */
+    border: 2px solid goldenrod; /* Border for better visual separation */
+}
+
+.upcoming-badge {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: ghostwhite;
+    color: black;
+    padding: 5px 8px; /* Halved padding */
+    border-radius: 5px;
+    font-size: 0.8rem; /* Halved font size */
+    font-family: 'VerlagBoldItalic', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .upcoming-badge {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 4px 7px;
+        font-size: 0.6rem;
+    }
+}
+
+
+
 
 /* Glow effect */
 @keyframes glow {

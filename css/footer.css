@@ -1,0 +1,84 @@
+.footer {
+    background-color: #000;
+    color: #d4af37;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'VerlagBookItalic', sans-serif;
+}
+
+.footer-logo-image {
+    max-width: 300px;
+    width: 270px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-link {
+    color: #d4af37;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #fff;
+}
+
+.footer-contact {
+    margin-bottom: 15px;
+}
+
+.footer-contact-title {
+    font-size: 0.9rem;
+    color: whitesmoke;
+    margin-bottom: 8px;
+    font-family: 'VerlagBoldItalic', sans-serif;
+}
+
+.footer-contact-info, .footer-contact-address {
+    margin: 5px 0;
+    color: white;
+}
+
+.footer-contact-link {
+    color: #d4af37;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-contact-link:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    margin-top: 15px;
+}
+
+.footer-text {
+    font-size: 14px;
+    margin: 0;
+    color: white;
+}
+
+@media (max-width: 576px) {
+    .footer-logo-image {
+        max-width: 300px;
+        width: 250px;
+    }
+
+    .footer-text {
+        font-size: 12px;
+    }
+
+    .footer-contact-title {
+        font-size: 1rem;
+    }
+
+    .footer-contact-info, .footer-contact-address {
+        font-size: 0.9rem;
+    }
+}

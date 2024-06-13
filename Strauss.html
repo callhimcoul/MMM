@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strauss PDF</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <style>
+        body {
+            padding-top: 20px;
+            background-color: #000000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .return-btn-container-Strauss {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+
+        .return-btn-Strauss {
+            display: inline-block;
+            background: url('https://i.imgur.com/0He3WGF.png') no-repeat center center;
+            background-size: cover;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .return-btn-Strauss:hover {
+            background-color: #ddd;
+            color: black;
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .container {
+            background-color: #333;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            box-sizing: border-box;
+        }
+
+        .pdf-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            position: relative;
+            cursor: pointer;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .pdf-frame img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .pdf-frame p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #000;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btn-primary {
+            background-color: #f8f9fa;
+            background-image: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            border-radius: 35px;
+            color: #333;
+            font-size: 16px;
+            padding: 8px 15px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-primary img {
+            margin-right: 10px;
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: black;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            padding: 5px 10px;
+            border-radius: 50%;
+        }
+
+        .nav-arrow.left {
+            left: 10px;
+        }
+
+        .nav-arrow.right {
+            right: 10px;
+        }
+
+        .pdf-canvas-container {
+            overflow: auto;
+            flex: 1;
+        }
+
+        .pdf-canvas {
+            width: 100%;
+            height: auto;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            color: white;
+            background-color: black;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 50%;
+            z-index: 20;
+        }
+
+        @media screen and (max-width: 768px) {
+            .pdf-frame {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+
+            .container {
+                padding: 10px;
+                width: 90%;
+                margin-top: 60px; /* Verschiebt den Container nach unten */
+            }
+
+            .nav-arrow {
+                font-size: 1.5em;
+                padding: 3px 7px;
+            }
+
+            .overlay-content {
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="return-btn-container-Strauss">
+    <a href="index.html" class="return-btn-Strauss">&#x2190;</a>
+</div>
+
+<div class="container">
+    <h1 class="headline">MORPHING x JOHANN STRAUSS <br> The 200th anniversary in 2025</h1>
+    <p>Hier finden Sie alle Details zum Projekt. </p>
+
+    <div class="pdf-container">
+        <div class="pdf-frame" data-pdf="pdf/Drei_Sopranos.pdf">
+            <img src="Images/Folders/Drei_Sopranos_Cover.jpg" alt="Drei Sopranos">
+            <p>Drei Sopranos</p>
+        </div>
+
+        <div class="pdf-frame" data-pdf="pdf/Julia_Alfredo.pdf">
+            <img src="Images/Folders/Julia_Alfredo.png" alt="Julia Sturzlbaum">
+            <p>Julia Sturzlbaum</p>
+        </div>
+
+        <div class="pdf-frame" data-pdf="pdf/Timna_Tim.pdf">
+            <img src="Images/Folders/Timna_Tim.png" alt="Timna Brauer & Tim Allhof">
+            <p>Timna Brauer & Tim Allhof</p>
+        </div>
+
+        <div class="pdf-frame" data-pdf="pdfs/NiklasLiepe.pdf">
+            <img src="covers/NiklasLiepe.jpg" alt="Niklas Liepe & Morphing">
+            <p>Niklas Liepe & Morphing</p>
+        </div>
+
+        <div class="pdf-frame" data-pdf="pdfs/AnnaKlaudia.pdf">
+            <img src="covers/AnnaKlaudia.jpg" alt="Anna Voshege & Klaudia Kudelko">
+            <p>Anna Voshege & Klaudia Kudelko</p>
+        </div>
+
+        <div class="pdf-frame" data-pdf="pdfs/AnnaShino.pdf">
+            <img src="covers/AnnaShino.jpg" alt="Anna Voshege & Shino Moroto">
+            <p>Anna Voshege & Shino Moroto</p>
+        </div>
+
+        <div class="pdf-frame" data-pdf="pdfs/RyuichiSakamoto.pdf">
+            <img src="covers/RyuichiSakamoto.jpg" alt="Ryüichi Sakamoto">
+            <p>Ryüichi Sakamoto</p>
+        </div>
+    </div>
+</div>
+
+<div class="overlay" id="pdf-overlay">
+    <div class="overlay-content">
+        <button class="close-button" onclick="closeOverlay()">&#10005;</button>
+        <button class="nav-arrow left" onclick="prevPage()">&#9664;</button>
+        <div id="pdf-canvas-container" class="pdf-canvas-container">
+            <canvas id="pdf-canvas" class="pdf-canvas"></canvas>
+        </div>
+        <button class="nav-arrow right" onclick="nextPage()">&#9654;</button>
+    </div>
+</div>
+
+<script>
+    const pdfFrames = document.querySelectorAll('.pdf-frame');
+    const overlay = document.getElementById('pdf-overlay');
+    const pdfCanvasContainer = document.getElementById('pdf-canvas-container');
+    const pdfCanvas = document.getElementById('pdf-canvas');
+    const ctx = pdfCanvas.getContext('2d');
+    let pdfDoc = null;
+    let pageNum = 1;
+    let pageRendering = false;
+    let pageNumPending = null;
+    const scale = 2; // Erhöhter Skalierungsfaktor für bessere Qualität
+
+    function renderPage(num) {
+        pageRendering = true;
+        pdfDoc.getPage(num).then(function(page) {
+            const viewport = page.getViewport({ scale: scale });
+            pdfCanvas.height = viewport.height;
+            pdfCanvas.width = viewport.width;
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            const renderTask = page.render(renderContext);
+            renderTask.promise.then(function() {
+                pageRendering = false;
+                if (pageNumPending !== null) {
+                    renderPage(pageNumPending);
+                    pageNumPending = null;
+                }
+            });
+        });
+    }
+
+    function queueRenderPage(num) {
+        if (pageRendering) {
+            pageNumPending = num;
+        } else {
+            renderPage(num);
+        }
+    }
+
+    function nextPage() {
+        if (pageNum < pdfDoc.numPages) {
+            pageNum++;
+            queueRenderPage(pageNum);
+        }
+    }
+
+    function prevPage() {
+        if (pageNum > 1) {
+            pageNum--;
+            queueRenderPage(pageNum);
+        }
+    }
+
+    function openOverlay(pdfUrl) {
+        pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            pageNum = 1;
+            renderPage(pageNum);
+        });
+        overlay.style.display = 'flex';
+    }
+
+    function closeOverlay() {
+        overlay.style.display = 'none';
+        ctx.clearRect(0, 0, pdfCanvas.width, pdfCanvas.height);
+    }
+
+    pdfFrames.forEach(frame => {
+        frame.addEventListener('click', () => {
+            const pdfUrl = frame.getAttribute('data-pdf');
+            openOverlay(pdfUrl);
+        });
+    });
+</script>
+</body>
+</html>
